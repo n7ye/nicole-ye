@@ -1,0 +1,220 @@
+
+/* #LandingPageThings */
+/* ─── Landing Page ─── */
+.landing {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  transition: background-color 0.4s ease;
+  overflow: hidden;
+}
+.scene {
+  position: relative;
+  width: min(600px, 92vw);
+  margin: 0 auto;
+  aspect-ratio: 735 / 990;
+}
+
+/* All items are absolutely positioned */
+.item {
+  position: absolute;
+  cursor: pointer;
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.25s ease;
+  will-change: transform, filter;
+  pointer-events: none;
+}
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: visiblePainted;
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.25s ease;
+}
+.item img:hover {
+  transform: rotate(var(--tilt, 4deg)) scale(1.08);
+  filter:
+    drop-shadow(0 0 10px var(--glow-color))
+    drop-shadow(0 0 24px var(--glow-color));
+}
+.item img:active {
+  transform: rotate(var(--tilt, 4deg)) scale(0.96);
+}
+
+/* ── Position each item ── */
+.item-header {
+  top: -6%;
+  left: 0%;
+  width: 105%;
+  pointer-events: none;
+  --tilt: 0deg;
+   z-index: 1;  /* ← higher number = on top */
+}
+.item-header img { pointer-events: none; }
+.item-phone {
+  top: -2%;
+  right: 0%;
+  width: 48%;
+  --tilt: -3deg;
+}
+.item-laptop {
+  top: 33%;
+  left: 3%;
+  width: 45%;
+  --tilt: -3deg;
+}
+.item-tomato {
+  top: 60%;
+  left: 17%;
+  width: 11%;
+  --tilt: -5deg;
+}
+.item-resume {
+  top: 41%;
+  right: 16%;
+  width: 32%;
+  --tilt: -5deg;
+}
+.item-crayon {
+  top: 65%;
+  right: 25%;
+  width: 22%;
+  --tilt: -4deg;
+}
+.item-character {
+  top: 2%;
+  left: 10%;
+  width: 80%;
+  --tilt: -2.5deg;
+}
+.item-git {
+  top: 34%;
+  left: 37.5%;
+  width: 12%;
+  --tilt: -2deg;
+}
+.item-link {
+  top: 38.3%;
+  left: 78%;
+  width: 12%;
+  --tilt: -2deg;
+}
+.item-mail {
+  top: 25%;
+  left: 10%;
+  width: 12%;
+  --tilt: 2deg;
+}
+.item-nicole {
+  top: 54.5%;
+  left: 12%;
+  width: 52%;
+  --tilt: 2deg;
+}
+
+/* ── Float animations ── */
+@keyframes float-a {
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 -8px; }
+}
+@keyframes float-b {
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 -12px; }
+}
+@keyframes float-c {
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 -6px; }
+}
+@keyframes float-d {
+  0%, 100% { translate: 0 0px; }
+  50%       { translate: 0 -4px; }
+}
+
+.item-character { animation: float-a 4s ease-in-out infinite; }
+.item-phone     { animation: float-d 4s ease-in-out infinite; }
+.item-tomato    { animation: float-c 5s ease-in-out infinite; }
+.item-crayon    { animation: float-c 4.5s ease-in-out infinite 0.5s; }
+.item-resume    { animation: float-b 4.3s ease-in-out infinite 0.8s; }
+.item-laptop    { animation: float-c 4.2s ease-in-out infinite 0.3s; }
+.item-git       { animation: float-a 4.8s ease-in-out infinite 0.2s; }
+.item-link      { animation: float-a 4.6s ease-in-out infinite 0.4s; }
+.item-mail      { animation: float-d 4.4s ease-in-out infinite 0.6s; }
+.item-nicole    { animation: float-b 4.1s ease-in-out infinite 0.1s; } 
+/* #endregion */
+
+/* ─── Music Button ─── */
+.music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(0,0,0,0.12);
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+.music-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+
+/* ─── Inner Pages ─── */
+.page-layout {
+  min-height: 100vh;
+  background-color: #fff4ce;
+  transition: background-color 0.4s ease;
+}
+
+.page-content {
+  padding: 50px 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-content h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: 0px;
+  color: #222;
+}
+
+.page-content h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #291e1a;
+}
+
+.page-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #291e1a;
+}
+
+.page-content ul {
+  padding-left: 24px;
+  margin: 12px 0 20px 0;
+}
+
+.page-content li {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #291e1a;
+  list-style-type: disc;
+}
